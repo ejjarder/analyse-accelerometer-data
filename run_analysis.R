@@ -28,7 +28,6 @@ make.analyser <- function(directory)
     #
     feature.labels.path <- file.path(directory, 'features.txt')
     feature.labels <- read.table(feature.labels.path)[,2]
-    mean.std.logical <- grepl('(mean|std)', feature.labels)
     
     # the names of the different activities
     #
@@ -98,7 +97,7 @@ make.analyser <- function(directory)
         
         colnames(feature.data) <- feature.labels
         
-        feature.data <- feature.data[mean.std.logical]
+        feature.data <- feature.data[grepl('(mean|std)', feature.labels)]
         
         feature.data
     }
