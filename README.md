@@ -40,6 +40,8 @@ Implementation
 This script is dependent on the plyr package for the ddply() function, and the
 reshape2 package for the melt() and dcast() functions.
 
+These packages are automatically loaded upon sourcing the script.
+
 ### Steps
 These are the steps done by the script to get the required output:
 
