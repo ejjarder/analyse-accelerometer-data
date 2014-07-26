@@ -7,7 +7,7 @@ Introduction
 ------------
 This project contains a script that will process raw accelerometer data. It
 will create a summary of the mean and std accelerometer values of that raw
-data.
+data. The output data is a space delimited text table.
 
 Usage
 -----
@@ -21,7 +21,7 @@ Call the run.analysis() function, passing the directory where the data is
 stored, and the name of the file where the output will be written.
 
 ```
-run.analysis(<data directory>, <output file>)
+run.analysis(<data directory>, <output text file>)
 ```
 
 ### Advanced Way:
@@ -64,3 +64,11 @@ These are the steps done by the script to get the required output:
 6. Reshape it back with dcast(), putting the column names back from values to
    column names, and filling the values with the mean computed from the
    previous step. Store this result in a variable.
+
+It is then up to the user what to do with the result. The run.analysis()
+function will automatically write the result in the specified text file.
+
+Data Dictionary
+---------------
+The data dictionary can be found in the [CodeBook.md](CodeBook.md) file in this
+respository.

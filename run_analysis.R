@@ -6,7 +6,7 @@
 #   For completion of Course Project of Getting and Cleaning Data.
 #
 #   Usage:
-#       run.analysis(<data directory>, <output file>)
+#       run.analysis(<data directory>, <output text file>)
 #
 ###############################################################################
 
@@ -179,7 +179,7 @@ make.analyser <- function(directory)
 # run.analysis()
 # Helper function to simplify usage of the script. Takes a directory that
 # contains the data to process, and the output filename. Output file format is
-# *.csv
+# a space delimited text table
 #
 # params:
 #   data.directory - the directory containing the accelerometer data
@@ -190,5 +190,5 @@ run.analysis <- function(data.directory, output.file)
 {
     analyser <- make.analyser(data.directory)
     
-    write.csv(analyser$mean.std.data, output.file)
+    write.table(analyser$mean.std.data, output.file, quote = FALSE)
 }
