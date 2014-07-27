@@ -185,10 +185,36 @@ make.analyser <- function(directory)
 #   data.directory - the directory containing the accelerometer data
 #   output.file - the output file where the cleaned data is written
 #
-#
 run.analysis <- function(data.directory, output.file)
 {
     analyser <- make.analyser(data.directory)
     
     write.table(analyser$mean.std.data, output.file, quote = FALSE)
+}
+
+# download.and.run.analysis()
+# Function download the file and run analysis on it. Stores the zip file in the
+# user's temp folder, and extracts it there as well. The zip file and the
+# extracted data are deleted after the run.
+#
+# params:
+#   url.zip - the path to the zip file
+#   output.file - the output file where the cleaned data is written
+#
+download.and.run.analysis <- function(url.zip, output.file)
+{
+    random.filename <- paste(sample(c(0:9, letters, LETTERS),
+                                    8, replace=TRUE),
+                             collapse='')
+
+    temp.zip <- file.path(tempdir(), paste(random.filename, '.zip', sep = ''))
+    download.file(url.zip, temp.zip, quiet = TRUE)
+
+    unzip.path <- file.path(tempdir(), random.filename)
+    unzip(temp.zip, exdir = unzip.path)
+
+    run.analysis(file.path(unzip.path, 'UCI HAR Dataset'), output.file)
+
+    unlink(unzip.path, recursive = TRUE)
+    unlink(temp.zip)
 }

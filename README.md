@@ -14,9 +14,9 @@ Usage
 The user must first get a copy of the script, and source it in his script or
 R console.
 
-The script can then be used in two ways:
+The script can then be used in three ways:
 
-### Simple Way:
+### Data is Available in a Local Directory:
 Call the run.analysis() function, passing the directory where the data is
 stored, and the name of the file where the output will be written.
 
@@ -24,7 +24,16 @@ stored, and the name of the file where the output will be written.
 run.analysis(<data directory>, <output text file>)
 ```
 
-### Advanced Way:
+### Download Data Online:
+Call the download.and.run.analysis() function, passing the url of the zip file.
+This will store and unzip the data in a temporary directory, then call
+run.analysis() on that directory. The temporary files are deleted afterwards.
+
+```
+download.and.run.analysis(<data directory>, <output text file>)
+```
+
+### Get the Cleaned up Data Frame:
 Create an analyser object using the make.analyser() function. The result is
 taken from the mean.std.data member of the analyser object.
 
@@ -71,4 +80,4 @@ function will automatically write the result in the specified text file.
 Data Dictionary
 ---------------
 The data dictionary can be found in the [CodeBook.md](CodeBook.md) file in this
-respository.
+repository.
