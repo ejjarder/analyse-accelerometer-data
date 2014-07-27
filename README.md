@@ -16,7 +16,7 @@ R console.
 
 The script can then be used in three ways:
 
-### Data is Available in a Local Directory:
+### Data is available in a local directory:
 Call the run.analysis() function, passing the directory where the data is
 stored, and the name of the file where the output will be written.
 
@@ -24,18 +24,20 @@ stored, and the name of the file where the output will be written.
 run.analysis(<data directory>, <output text file>)
 ```
 
-### Download Data Online:
+### Download data online:
 Call the download.and.run.analysis() function, passing the url of the zip file.
 This will store and unzip the data in a temporary directory, then call
 run.analysis() on that directory. The temporary files are deleted afterwards.
 
 ```
-download.and.run.analysis(<data directory>, <output text file>)
+download.and.run.analysis(<url of zip file>, <output text file>)
 ```
 
-### Get the Cleaned up Data Frame:
-Create an analyser object using the make.analyser() function. The result is
-taken from the mean.std.data member of the analyser object.
+### Get the cleaned up data frame:
+If the user wants to process the resulting data frame further, the user can
+do the following steps: Create an analyser object using the make.analyser()
+function. The result is taken from the mean.std.data member of the analyser
+object.
 
 ```
 analyser <- make.analyser(<data directory>)
