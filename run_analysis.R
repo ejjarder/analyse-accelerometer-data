@@ -75,8 +75,7 @@ make.analyser <- function(directory)
     {
         activity.data <- load.one.file(activity.filebase, type)
         
-        activity.data <- merge(activity.data, activity.labels, by.X = 'V1', 
-                               by.Y = 'V1', all = TRUE)
+        activity.data <- join(activity.data, activity.labels)
         
         colnames(activity.data)[2] <- activity.label
         

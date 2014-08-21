@@ -61,7 +61,7 @@ These are the steps done by the script to get the required output:
     1. Load subject ids from the 'subject_*.txt'. Assign column name of
        'subject.id'
     2. Load activity data from the 'Y_*.txt'. Assign proper label taken from
-       activity_labels.txt by merging. Retain only the column of the proper
+       activity_labels.txt by joining. Retain only the column of the proper
        labels. Assign the name 'activity' to the column.
     3. Load the accelerometer data from the 'X_*.txt'. Assign labels taken from
        features.txt. Retain only the columns with mean and std values.
